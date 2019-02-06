@@ -1,0 +1,69 @@
+*{ margin: 0; padding: 0;}
+body input { display: none; }
+
+
+.radiomenu {
+  --title_font-size: 5vw;
+  --title_letter-spacing: .1em;
+  --labels-spacing: .4em;
+  --inactive_font-color: #aaa;
+  --active_font-color: black;
+  
+}
+.radiomenu * { transition-duration: .1s; }
+
+.radiomenu {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.radiomenu .menu {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-right: 2em;
+}
+.radiomenu .menu .title {
+  text-align: center;
+  font-size: var(--title_font-size);
+  letter-spacing: var(--title_letter-spacing);
+}
+.radiomenu .menu .labels {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.radiomenu .menu .labels label {
+  margin: 0 var(--labels-spacing);
+  color: var(--inactive_font-color);
+}
+
+.radiomenu .elements {
+  display: flex;
+  flex-flow: row wrap;
+  color: var(--inactive_font-color);
+}
+.elements p {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  margin: 0 3em;
+}
+.elements p span {
+  margin: .2em 0;
+}
+
+input[id="all"]:checked      ~ .radiomenu .elements           { color: var(--active_font-color); }
+input[id="logo"]:checked     ~ .radiomenu .elements .logo     { color: var(--active_font-color); }
+input[id="graphic"]:checked  ~ .radiomenu .elements .graphic  { color: var(--active_font-color); }
+input[id="branding"]:checked ~ .radiomenu .elements .branding { color: var(--active_font-color); }
+input[id="product"]:checked  ~ .radiomenu .elements .product  { color: var(--active_font-color); }
+
+input[id="all"]:checked      ~ .radiomenu .menu .labels label[for="all"]      { color: var(--active_font-color); }
+input[id="logo"]:checked     ~ .radiomenu .menu .labels label[for="logo"]     { color: var(--active_font-color); }
+input[id="graphic"]:checked  ~ .radiomenu .menu .labels label[for="graphic"]  { color: var(--active_font-color); }
+input[id="branding"]:checked ~ .radiomenu .menu .labels label[for="branding"] { color: var(--active_font-color); }
+input[id="product"]:checked  ~ .radiomenu .menu .labels label[for="product"]  { color: var(--active_font-color); }
+
+.radiomenu .menu .labels label:hover { color: var(--active_font-color); }
